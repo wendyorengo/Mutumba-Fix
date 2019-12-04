@@ -1,0 +1,3 @@
+Hello {{user.username}}
+WELCOME TO MUTUMBA-FIX
+We have just seen you have signed up for our application . Thank you for signing with us.
