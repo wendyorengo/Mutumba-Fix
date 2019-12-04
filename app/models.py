@@ -1,5 +1,7 @@
+from datetime import datetime
 from . import db
-from flask_login import UserMixin
+from werkzeug.security import generate_password_hash,check_password_hash
+from flask_login import UserMixin, current_user
 from . import login_manager
 
 @login_manager.user_loader
@@ -35,3 +37,16 @@ class User(UserMixin, db.Model):
        
     def __repr__(self):
         return f'User {self.username}'
+
+class Post(db.Model):
+    '''
+    Post class to define Post Objects
+    '''
+    __tablename__ = 'post'
+
+    id = db.Column(db.Integer,primary_key = True)
+    post = db.Column(db.String)
+    title = db.Column(db.String)
+    date = db.Column(db.DateTime,default=datetime.utcnow)
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    comments = db.relationship('Comment',backref = 'post',lazy="dynamic")
