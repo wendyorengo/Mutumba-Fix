@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField,PasswordField,SubmitField
 from wtforms.validators import Required,Email,EqualTo
+from ..models import Seller
+from wtforms import ValidationError
 
 class RegistrationForm(FlaskForm):
     email = StringField('Your Email Address',validators=[Required(),Email()])
@@ -9,7 +11,15 @@ class RegistrationForm(FlaskForm):
     password_confirm = PasswordField('Confirm Passwords',validators = [Required()])
     submit = SubmitField('Sign Up')
 
-class RegistrationForm(FlaskForm):
+    def validate_email(self,data_field):
+        if Seller.query.filter_by(username=data_field.data).first():
+            raise ValidationError('There is an account with that email')
+
+    def validate_username(self,data_field):
+        if Seller.query.filter_by(username=data_field.data).first():
+            raise ValidationError('That username is taken')
+
+class LoginForm(FlaskForm):
     username = StringField('Enter your username',validators = [Required()])
     password = PasswordField('Password',validators = [Required(), EqualTo('password_confirm',message = 'Passwords must match')])
     submit = SubmitField('Sign Up')
