@@ -1,16 +1,29 @@
-{% extends 'base.html' %}
-<h3>Kindly Login</h3>
-<form>
-    <div class="form-group">
-      <label for="exampleInputUsername">Username</label>
-      <input type="username" class="form-control" id="exampleInputUsername" aria-describedby="usernameHelp">
-      <small id="usernameHelp" class="form-text text-muted"></small>
-    </div>
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
 
-    <div class="form-group">
-      <label for="exampleInputPassword">Password</label>
-      <input type="phone" class="form-control" id="exampleInputPhonenu">
-    </div>
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
 
-    
-  </form>
+{% block content %}
+
+<div class="container-fluid login"> 
+        <h1 class="text-center"> Log In</h1>
+    <div class="row">
+      <!-- <div class= "col-md-2"> </div> -->
+      <div class="col-md-6 mx-auto bg-secondary text-light">
+      <!--Flash message -->
+      {% for message in get_flashed_messages() %}
+        <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+        </div>
+      {% endfor %}
+      <!-- Login form -->
+      {{wtf.quick_form(login_form)}}
+      <h2 class="sign"> Don't have an account? <a href="{{url_for('auth.register')}}">Sign up here</a></h2>
+     </div>
+    </div>
+</div>
+
