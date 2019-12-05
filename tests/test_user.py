@@ -1,12 +1,12 @@
-mport unittest
+import unittest
 from app.models import User
 from app import db
 
 
 class UserModelTest(unittest.TestCase):
     '''
-class for testing the behaviour of the User class
-'''
+    class for testing the behaviour of the User class
+    '''
 def setUp(self):
     '''
     function for set up method to run before each testcase
@@ -30,4 +30,4 @@ def test_password_verification(self):
     '''
     function to test whether the password can be verified
     '''
-    self.assertTrue(self.new_us
+    self.assertTrue(self.new_user)
