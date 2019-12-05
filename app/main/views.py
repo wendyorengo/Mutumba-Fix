@@ -7,7 +7,7 @@ from ..models import User,Post, Comment
 from flask_login import login_required, current_user
 # from .. import db, photos
 # import markdown2
-from ..email import mail_message
+# from ..email import mail_message
 
 
    
