@@ -51,10 +51,10 @@ def all():
     title = 'Welcome to Mitumba Fix Application'
 
     
-    profile= Post.get_all_profiles() 
+    posts= Post.get_all_posts() 
     
 
-    return render_template('profile.html', title = title, profiles=profiles)
+    return render_template('post.html', title = title, posts=posts)
 
 
 
