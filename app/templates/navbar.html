@@ -3,19 +3,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li>
-          <a class="text-light" href="/"><i class="fa fa-home "></i><strong>HOME</strong> </a>
+          <a href="/"><i class="fa fa-home "></i><strong>HOME</strong> </a>
         </li>
         <li>
-            <a class="text-light" href="{{ url_for('main.about')}}"><strong>About Mitumba Fix</strong> </a>
+            <a href="{{ url_for('main.about')}}"><strong>About Mitumba Fix</strong> </a>
         </li>
+        
         <li>
-            <a class="text-light" href="{{ url_for('main.profile')}}"><strong>Profiles</strong> </a>
-        </li>
-        <li>
-          <a class="text-light" href="{{ url_for('main.post')}}"><strong>Posts</strong> </a>
+          <a href="{{ url_for('main.new_post')}}"><strong>New posts</strong> </a>
       </li>
         <li>
-            <a class="text-light" href="{{ url_for('main.contact')}}"><strong>Contact Us:</strong> </a>
+            <a href="{{ url_for('main.contact')}}"><strong>Contact Us:</strong> </a>
         </li>      
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -37,3 +35,4 @@
      
     </div>
   </nav>
+  

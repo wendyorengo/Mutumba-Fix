@@ -1,13 +1,14 @@
 from flask import render_template,redirect,url_for, abort,request,flash
 from . import main
-# from ..requests import get_quotes
-
-from .forms import CommentsForm ,UpdateProfile, BlogForm
+from flask import render_template,redirect,url_for, flash,request
+from flask_login import login_user,logout_user,login_required,current_user
 from ..models import User,Post, Comment
-from flask_login import login_required, current_user
-# from .. import db, photos
-# import markdown2
-# from ..email import mail_message
+from .forms import CommentsForm ,UpdateProfile, PostForm
+from .. import db,photos
+from ..email import mail_message
+from ..requests import get_quotes
+import markdown2
+
 
 
    
@@ -21,10 +22,10 @@ def index():
     title = 'Home - Welcome to Mitumba Fix Application'
 
     
-    posts= Post.get_all_posts() 
+    
     quotes = get_quotes() 
 
-    return render_template('index.html', title = title, quotes = quotes, posts=posts)
+    return render_template('index.html', title = title, quotes = quotes)
 
 @main.route('/about')
 def about():
@@ -57,14 +58,14 @@ def all():
 
 
 
-@main.route('/post')
-def post():
+@main.route('/post/<int:post_id>')
+def post(post_id):
 
     '''
     View post page function that returns the post details page and its data
     '''
     found_post= Post.query.get(post_id)
-    title = post_id
+    
     post_comments = Comment.get_comments(post_id)
 
     return render_template('post.html',title= title ,found_post= found_post, post_comments= post_comments)
@@ -119,12 +120,12 @@ def new_post():
 
     return render_template('new_post.html', new_post_form= form)
 
-@main.route('/blog/comments/new/<int:id>',methods = ['GET','POST'])
+@main.route('/post/comments/new/<int:id>',methods = ['GET','POST'])
 @login_required
 def new_comment(id):
     form = CommentsForm()
     if form.validate_on_submit():
-        new_comment = Comment(blog_id =id,comment=form.comment.data,username=current_user.username)
+        new_comment = Comment(post_id =id,comment=form.comment.data,username=current_user.username)
         new_comment.save_comments()
         return redirect(url_for('main.all'))
     
@@ -176,51 +177,4 @@ def view_comments(id):
     '''
     comments = Comment.get_comments(id)
     return render_template('view_comment.html',comments = comments, id=id)
-
-
-
-
-from flask import render_template,redirect,url_for, flash,request
-from flask_login import login_user,logout_user,login_required
-from . import auth
-from ..models import User
-from .forms import  LoginForm,RegistrationForm
-from .. import db
-from ..email import mail_message
-
-
-@auth.route('/login', methods=['GET', 'POST'])
-def login():
-    login_form = LoginForm()
-    if login_form.validate_on_submit():
-        user = User.query.filter_by(email=login_form.email.data).first()
-        if user is not None and user.verify_password(login_form.password.data):
-            login_user(user,login_form.remember.data)
-            return redirect(request.args.get('next') or url_for('main.index'))
-
-        flash('Invalid username or Password')
-    title = "login"
-    return render_template('auth/login.html',login_form = login_form, title = title)
-
-@auth.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    return redirect(url_for("main.index"))
-    
-@auth.route('/register', methods=["GET", "POST"])
-def register():
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(email = form.email.data, username = form.username.data,password =form.password.data)
-        db.session.add(user)
-        db.session.commit()
-
-        mail_message("Welcome to Mutumba Fix","email/welcome_user", user.email,user=user)
-        
-        return redirect(url_for('auth.login'))
-    title = "Register Now"
-    return render_template('auth/register.html',title=title, registration_form =form)
-
-    
 
