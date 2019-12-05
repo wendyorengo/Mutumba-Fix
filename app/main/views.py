@@ -44,6 +44,21 @@ def contact():
     return render_template('contacts.html', title = title)
 
 
+@main.route('/all')
+def all():
+    '''
+    View root page function that returns the contact page and its data
+    '''
+    title = 'Welcome to mitumba fix application'
+
+    posts = Post.get_all_posts()
+
+    return render_template('post.html', title = title, posts=posts)
+
+
+
+
+
 
 
 @main.route('/post/<int:post_id>')
@@ -104,7 +119,7 @@ def new_post():
         post = Post(title=form.title.data,post=form.content.data)
         db.session.add(post)
         db.session.commit()
-        return redirect(url_for('main.post'))
+        return redirect(url_for('main.index'))
 
     return render_template('new_post.html', new_post_form= form)
 
