@@ -1,8 +1,8 @@
 from flask import render_template,redirect,url_for, abort,request,flash
 from . import main
-# from ..requests import get_quotes
+from ..requests import get_quotes
 
-from .forms import CommentsForm ,UpdateProfile, BlogForm
+from .forms import CommentsForm ,UpdateProfile, PostForm
 from ..models import User,Post, Comment
 from flask_login import login_required, current_user
 # from .. import db, photos

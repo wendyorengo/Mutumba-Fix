@@ -71,3 +71,13 @@ class Comment(db.Model):
     @classmethod
     def clear_(cls):
         Comment.all_comments.clear()
+
+class Quote:
+    '''
+    Quote class to define quote objects
+    '''
+
+    def __init__(self,id,author,quote):
+        self.id = id
+        self.author = author
+        self.quote = quote
