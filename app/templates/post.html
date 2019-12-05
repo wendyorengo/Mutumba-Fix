@@ -1,31 +1,16 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
-
 <!-- Content block -->
 {% block content %}
 <div class="container">
 
   
     <div class="row">
-            <h3>Post ID:{{ found_post.id }}</h3>
-
-            <p> {{ found_post.post }}</p>
-
-            <a href="/post/comments/new/{{found_post.id}}"> Comment</a>
+           <div class="col-md-12">
+               <h3>Posts</h3>
+               {{macro.displayPosts(posts)}}
+           </div>
     </div>
-    <div class="row">
-            
-                    <h1>Comments on this Post</h1>
-                    <hr>
-            
-                    {% if post_comments %}
-                        {{ macro.displayComments(post_comments) }}
-            
-                    {% else%}
-                        <h3 class="text-center">This Post has no Comments </h3>
-                    {% endif %}
-
-                </div>
 
 </div>
 {% endblock %}
