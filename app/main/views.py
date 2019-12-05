@@ -43,18 +43,6 @@ def contact():
     title = ''
     return render_template('contacts.html', title = title)
 
-@main.route('/all')
-def all():
-    '''
-    View profile page that returns all the profiles of the users"
-    '''
-    title = 'Welcome to Mitumba Fix Application'
-
-    
-    profile= Post.get_all_profiles() 
-    
-
-    return render_template('profile.html', title = title, profiles=profiles)
 
 
 
