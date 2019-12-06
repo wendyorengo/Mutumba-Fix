@@ -46,6 +46,25 @@ class Post(db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     comments = db.relationship('Comment',backref = 'post',lazy="dynamic")
 
+    def save_post(self):
+        '''
+        Function that saves posts
+        '''
+        db.session.add(self)
+        db.session.commit()
+    @classmethod
+    def get_all_posts(cls):
+        '''
+        Function that queries the database and returns all the posts
+        '''
+        return Post.query.all()
+    @classmethod
+    def delete_post(cls,id):
+        '''
+        '''
+        db.session.delete()
+        db.session.commit()
+
 class Comment(db.Model):
 
     __tablename__ = 'comments'
