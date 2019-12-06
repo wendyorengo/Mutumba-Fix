@@ -1,7 +1,7 @@
 {% macro displayPosts(posts_list) %}
 
 {% for post in posts_list[::-1] %}
-<div class="panel style=" style="box-shadow: 5px 5px 5px 5px #f2f2f2; padding:10px; text-align:center;">
+<div class="panel style"> 
   <h3>{{post.post}}</h3>
   <p> Posted on:{{post.date}}</p>
   <br>

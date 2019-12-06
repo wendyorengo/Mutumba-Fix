@@ -20,10 +20,44 @@ ul {
 .navbar{
   background-color: darkgrey;
   box-shadow: 5px 5px black;
+  font-size: 25px;
+  font-family: 'Roboto Slab', serif;
 }
 
+.abt-header{
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Amaranth', sans-serif;
+  color: white;
+}
+
+.panel{
+  box-shadow: 5px 5px 5px 5px #a39c9c; 
+  padding:10px; 
+  text-align:center;
+  background-color: #a39c9c;
+}
+
+.blockquote{
+  color: antiquewhite;
+  font-size:25px;
+
+}
+
+.quote h2{
+  color: antiquewhite;
+  font-size:30px;
+  text-align: center;
+}
+
+.post h3{
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Libre Baskerville', serif;
+  color: whitesmoke;
+}
 .container-fluid{
-  background:linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url('https://www.ayasofia-usedclothes.com/wp-content/uploads/2019/02/used-clothes-bales-3.jpg');
+  background:linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('https://www.ayasofia-usedclothes.com/wp-content/uploads/2019/02/used-clothes-bales-3.jpg');
   /* Full height */
   height: 100%;
 
@@ -31,7 +65,7 @@ ul {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height:75vh;
+  height:100vh;
   
 }
 
@@ -42,6 +76,43 @@ ul {
   background-size: cover;
   height:90vh;
   border-radius:20px;
+}
+
+.container{
+  background-color: rgb(221, 211, 195);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:80vh;
+  border-radius:20px;
+}
+
+.cont{
+  background-color: rgb(221, 211, 195);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:105vh;
+  border-radius:20px;
+  color:black;
+  font-size: 20px;
+  font-family: 'Amaranth', sans-serif;
+}
+
+.new-post{
+  color:white;
+  font-size: 20px;
+  font-family: 'Amaranth', sans-serif;
+  align-content: center;
+}
+.pic{
+  border-radius: 20px;
+  height:200px;
+  width:200px;
+  margin-bottom:10px;
+  
+}
+
+.sub{
+  margin:10px;
 }
 
 .new-img{
