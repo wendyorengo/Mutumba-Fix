@@ -48,14 +48,14 @@ class Post(db.Model):
 
     def save_post(self):
         '''
-        Function that saves blogs
+        Function that saves posts
         '''
         db.session.add(self)
         db.session.commit()
     @classmethod
     def get_all_posts(cls):
         '''
-        Function that queries the database and returns all the blogs
+        Function that queries the database and returns all the posts
         '''
         return Post.query.all()
     @classmethod

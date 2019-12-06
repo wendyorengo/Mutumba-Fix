@@ -22,10 +22,10 @@ def index():
     title = 'Home - Welcome to Mitumba Fix Application'
 
     
-    
+    posts = Post.get_all_posts()
     quotes = get_quotes() 
 
-    return render_template('index.html', title = title, quotes = quotes)
+    return render_template('index.html', title = title, quotes = quotes,posts=posts)
 
 @main.route('/about')
 def about():
@@ -53,7 +53,7 @@ def all():
 
     posts = Post.get_all_posts()
 
-    return render_template('post.html', title = title, posts=posts)
+    return render_template('index.html', title = title, posts=posts)
 
 
 

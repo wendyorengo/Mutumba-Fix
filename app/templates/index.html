@@ -16,8 +16,18 @@
     {% block content %}
 
     <div class="container-fluid all">
+            <div class="row">
+                    <a href="{{url_for('main.new_post')}}"><br>
+                        <span class="new">Add a new Post</span></a>
+                    </div>
         <div class="row">
-                <div class="col-md-6">
+            <div class="col-md-12">
+                <h3>Posts</h3>
+                {{macro.displayPosts(posts)}}
+            </div>
+        </div>
+             <div class="row">
+                <div class="col-md-12">
                     
                         
                         <h2>Quote of the day...</h2>
