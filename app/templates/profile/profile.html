@@ -1,4 +1,7 @@
 {% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+
 
 {% block styles%}
 {{ super() }}
@@ -13,8 +16,8 @@
     <!-- displaying  Username-->
 
     <div class="card-header">
-      <h1 class="text-center">Mtumba Posted</h1>
-      <h1> Hi; {{user.username| capitalize}} </h1>
+      <h4 class="text-center">Mtumba Posted</h4>
+      <h4> Hi; {{user.username| capitalize}} </h4>
     </div>
     <div class="card-title">
       {% if user.profile_pic_path %}

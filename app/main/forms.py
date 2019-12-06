@@ -7,12 +7,12 @@ class CommentsForm(FlaskForm):
     submit = SubmitField('SUBMIT')
 
 class PostForm(FlaskForm):
-    title = TextAreaField ('Title of your post')
-    content = TextAreaField('Create a a New Post', validators=[Required()])
+    title = TextAreaField ('Name of Item')
+    content = TextAreaField('Describe your item', validators=[Required()])
     submit = SubmitField('Submit') 
 
 class UpdateProfile(FlaskForm):
-    bio = TextAreaField('Tell us about you.',validators = [Required()])
+    bio = TextAreaField('Explain your dealings.',validators = [Required()])
     submit = SubmitField('Submit')
 
 

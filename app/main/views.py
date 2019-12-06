@@ -22,10 +22,10 @@ def index():
     title = 'Home - Welcome to Mitumba Fix Application'
 
     
-    
+    posts = Post.get_all_posts()
     quotes = get_quotes() 
 
-    return render_template('index.html', title = title, quotes = quotes)
+    return render_template('index.html', title = title, quotes = quotes,posts=posts)
 
 @main.route('/about')
 def about():
@@ -43,18 +43,24 @@ def contact():
     title = ''
     return render_template('contacts.html', title = title)
 
+
 @main.route('/all')
 def all():
     '''
-    View profile page that returns all the profiles of the users"
+    View root page function that returns the contact page and its data
     '''
-    title = 'Welcome to Mitumba Fix Application'
+    title = 'Welcome to mitumba fix application'
+
+    posts = Post.get_all_posts()
+
+    return render_template('index.html', title = title, posts=posts)
+
+
 
     
-    profile= Post.get_all_profiles() 
+    posts= Post.get_all_posts() 
     
 
-    return render_template('profile.html', title = title, profiles=profiles)
 
 
 
@@ -116,7 +122,7 @@ def new_post():
         post = Post(title=form.title.data,post=form.content.data)
         db.session.add(post)
         db.session.commit()
-        return redirect(url_for('main.post'))
+        return redirect(url_for('main.index'))
 
     return render_template('new_post.html', new_post_form= form)
 
@@ -141,6 +147,8 @@ def update_pic(uname):
         user.profile_pic_path = path 
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+
+
 
 @main.route('/user/<uname>')
 def profile(uname):
