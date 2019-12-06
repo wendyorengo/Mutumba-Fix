@@ -57,6 +57,9 @@ def all():
 
 
 
+    
+    posts= Post.get_all_posts() 
+    
 
 
 
