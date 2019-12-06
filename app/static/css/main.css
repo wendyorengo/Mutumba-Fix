@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville|Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville|Roboto+Slab|Viga&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Amaranth|Libre+Baskerville|Roboto+Slab|Viga&display=swap');
+
+
+
 ul {
     list-style-type: none;
     
@@ -11,10 +17,66 @@ ul {
     
   }
 
-  .navbar{
-    display: block;
-    
-    background-color: #dddddd;
-  }
+.navbar{
+  background-color: darkgrey;
+  box-shadow: 5px 5px black;
+}
 
+.container-fluid{
+  background:linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url('https://www.ayasofia-usedclothes.com/wp-content/uploads/2019/02/used-clothes-bales-3.jpg');
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:75vh;
   
+}
+
+.about{
+  background:linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7) ), url('https://media.mnn.com/assets/images/2014/04/palm-tree-intro.jpg.653x0_q80_crop-smart.jpg');
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:90vh;
+  border-radius:20px;
+}
+
+.new-img{
+  background:linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7) ), url('https://img3.exportersindia.com/product_images/bc-full/dir_120/3595268/bulk-used-clothing-1948006.jpeg');
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:90vh;
+  border-radius:20px;
+}
+
+.overlay{
+  color:white;
+  font-size:40px;
+  font-family: 'Roboto Slab', serif;
+}
+  
+.abt{
+  font-family: 'Amaranth', sans-serif;
+  font-size:30px;
+  color:whitesmoke;
+  text-align: center;
+}
+
+.abt h3{
+  font-size:30px;
+  color:darkseagreen;
+}
+
+.about h2{
+font-size:40px;
+font-family: 'Libre Baskerville', serif;
+    
+}
+
+.new_post{
+  text-align: center;
+}
