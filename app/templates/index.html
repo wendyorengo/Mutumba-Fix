@@ -15,12 +15,12 @@
        
     {% block content %}
 
-    <div class="container-fluid all">
+    <div class="container-fluid home">
         <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     
-                        
-                        <h2>Quote of the day...</h2>
+                        <div class="overlay">
+                        <h2 class="blockquote text-center">Quote of the day...</h2>
                         
                         
                         <blockquote class="blockquote text-center">
@@ -28,20 +28,10 @@
                             <footer class="blockquote-footer"><cite>{{quotes.author}}</cite></footer>
                         </blockquote>
                     
-                    
+                    </div>
                 </div>
         
-        <div class="col-md-6">
-                
-                  {% for message in get_flashed_messages() %}
-                  <div class="alert alert-success">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    {{ message }}
-                  </div>
-                  {% endfor %}
-            
-            
-              </div>
+        
         </div>
     </div>
     
