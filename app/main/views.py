@@ -52,8 +52,9 @@ def all():
     title = 'Welcome to mitumba fix application'
 
     posts = Post.get_all_posts()
+    quotes = get_quotes() 
 
-    return render_template('index.html', title = title, posts=posts)
+    return render_template('index.html', title = title, posts=posts, quotes = quotes)
 
 
 
