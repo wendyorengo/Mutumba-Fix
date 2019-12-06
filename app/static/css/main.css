@@ -10,11 +10,10 @@ ul {
     
   }
 
-  li  {
-    display: inline;
-    padding:60px;
-    font-size:30px;
-    font-family: 'Libre Baskerville', serif;
+  li{
+      display: inline;
+      padding:11px;
+       
     
   }
 
